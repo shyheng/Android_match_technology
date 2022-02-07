@@ -17,22 +17,17 @@ public class APP extends Application {
     @Override
     public void onCreate() {
 
-        if (token ==null){
-            SharedPreferences shared = getSharedPreferences("token",MODE_PRIVATE);
-            final SharedPreferences.Editor edit = shared.edit();
-            netAPI.token(new NetAPI.Users("shyheng", "123456")).enqueue(new Net<User>() {
-                @Override
-                public void onResponse(Call<User> call, Response<User> response) {
-                    token = response.body().getToken();
-                    System.out.println(token);
-                    edit.putString("token",token);
-                    edit.commit();
-                }
-            });
-
-
-
-        }
+        SharedPreferences shared = getSharedPreferences("token",MODE_PRIVATE);
+        final SharedPreferences.Editor edit = shared.edit();
+        netAPI.token(new NetAPI.Users("shyheng", "123456")).enqueue(new Net<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                token = response.body().getToken();
+                System.out.println(token);
+                edit.putString("token",token);
+                edit.commit();
+            }
+        });
         super.onCreate();
     }
 }

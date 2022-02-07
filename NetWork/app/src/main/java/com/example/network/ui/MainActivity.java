@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.network.R;
+import com.example.network.assembly.SGrid;
 import com.example.network.entity.News;
 import com.example.network.entity.NewsList;
 import com.example.network.entity.User;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button button3;
     private Button button2;
     private Button button;
-    private GridView gv;
+    private SGrid gv;
     List<NewsList.DataBean> rows;
     int c = Color.parseColor("#00FFFF");
 
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button2.setOnClickListener(this);
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(this);
-        gv = (GridView) findViewById(R.id.gv);
+        gv = findViewById(R.id.gv);
     }
 
 
