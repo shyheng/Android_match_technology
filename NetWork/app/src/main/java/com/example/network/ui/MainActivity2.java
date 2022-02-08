@@ -39,7 +39,6 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onResponse(Call<NetAPI.Msg> call, Response<NetAPI.Msg> response) {
                 System.out.println(response.body().getMsg());
-                System.out.println(response.body().getCode());
             }
         });
     }
