@@ -20,7 +20,8 @@ import retrofit2.Response;
 import static com.example.network.tool.Net.netAPI;
 
 public class NewsListNet {
-    public static void news(int i, final Context context, final GridView gv) {
+    public static void news(final int i, final Context context, final GridView gv) {
+
         netAPI.test(i).enqueue(new Net<News>() {
             @Override
             public void onResponse(Call<News> call, final Response<News> response) {

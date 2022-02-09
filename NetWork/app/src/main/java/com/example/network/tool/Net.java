@@ -21,8 +21,8 @@ public abstract class Net<E> implements Callback<E> {
 
     @Override
     public void onFailure(Call<E> call, Throwable throwable) {
+        throwable.printStackTrace();
         Log.e("net","网络错误");
-
     }
 
 

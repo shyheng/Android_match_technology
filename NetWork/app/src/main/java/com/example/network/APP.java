@@ -3,6 +3,7 @@ package com.example.network;
 import android.app.Application;
 import android.content.SharedPreferences;
 
+import com.example.network.entity.Obj;
 import com.example.network.tool.Net;
 import com.example.network.tool.NetAPI;
 
@@ -17,9 +18,9 @@ public class APP extends Application {
 
         SharedPreferences shared = getSharedPreferences("token",MODE_PRIVATE);
         final SharedPreferences.Editor edit = shared.edit();
-        netAPI.token(new NetAPI.Users("shyheng", "123456")).enqueue(new Net<NetAPI.Token>() {
+        netAPI.token(new Obj.Users("shyheng", "123456")).enqueue(new Net<Obj.Token>() {
             @Override
-            public void onResponse(Call<NetAPI.Token> call, Response<NetAPI.Token> response) {
+            public void onResponse(Call<Obj.Token> call, Response<Obj.Token> response) {
                 token = response.body().token;
                 System.out.println(token);
                 edit.putString("token",token);
