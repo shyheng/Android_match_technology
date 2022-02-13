@@ -125,12 +125,21 @@ public class MainActivity2 extends AppCompatActivity {
 //            }
 //        });
 
-        netAPI.img("2").enqueue(new Net<NetAPI.Img>() {
+//        netAPI.img("2").enqueue(new Net<NetAPI.Img>() {
+//            @Override
+//            public void onResponse(Call<NetAPI.Img> call, Response<NetAPI.Img> response) {
+//                for (int i = 0; i < response.body().rows.size(); i++) {
+//                    System.out.println(response.body().rows.get(i).advImg);
+//                }
+//            }
+//        });
+
+        netAPI.met().enqueue(new Net<NetAPI.met>() {
             @Override
-            public void onResponse(Call<NetAPI.Img> call, Response<NetAPI.Img> response) {
-                for (int i = 0; i < response.body().rows.size(); i++) {
-                    System.out.println(response.body().rows.get(i).advImg);
-                }
+            public void onResponse(Call<NetAPI.met> call, Response<NetAPI.met> response) {
+                System.out.println(response.body().data.name);
+                System.out.println(response.body().data.code);
+                System.out.println(response.body().data.imgUrl);
             }
         });
     }

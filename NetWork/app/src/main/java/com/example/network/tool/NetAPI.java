@@ -10,7 +10,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -155,5 +154,19 @@ public interface NetAPI {
 //    @Multipart
 //    @POST("/prod-api/common/upload")
 //    Call<File> file();
-    
+    class met{
+
+    public String msg;
+    public int code;
+    public DataBean data;
+
+    public static class DataBean {
+        public int id;
+        public String name;
+        public int code;
+        public String imgUrl;
+    }
+}
+    @GET("/prod-api/api/metro/city")
+    Call<met> met();
 }
